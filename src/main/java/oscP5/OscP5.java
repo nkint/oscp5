@@ -276,6 +276,7 @@ public class OscP5 implements Observer {
 		DatagramSocket mySocket;
 		try {
 			mySocket = new DatagramSocket( );
+                        mySocket.setReuseAddress(true);
 			DatagramPacket myPacket = new DatagramPacket( theBytes , theBytes.length , theNetAddress.inetaddress( ) , theNetAddress.port( ) );
 			mySocket.send( myPacket );
 		} catch ( SocketException e ) {
